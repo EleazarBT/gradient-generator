@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate a gradient easy and fast" />
+    <!-- Metadata para PWA -->
+    <!--Modificar color de barra de estado para ANDROID-->
+    <meta name="theme-color" content="#f5f5dc" />
+    <!--Optimizaciones de SEO-->
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <!--Modificar Barra de estado IOS-->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>Gradient generator</title>
+
+    <!--Iconos-->
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./img/favicon.png" />
+    <link rel="apple-touch-startup-image" href="./img/favicon.png" />
+
+    <!--Styles, fonts-->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="manifest" href="./manifest.json" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <hr />
+      <label>Color 1: <input type="color" v-model="fcolor" /> </label>
+      <label>Color 2: <input type="color" v-model="scolor" /> </label>
+      <p>HEX : {{fcolor}}</p>
+      <p>HEX : {{scolor}}</p>
+      <form>
+        <label><input class="value-css" type="text" :value="setColor" /></label>
+
+        <br />
+        <label>
+          <input type="radio" value="1" v-model.number="orientation" /> Right
+        </label>
+        <label>
+          <input type="radio" value="2" v-model.number="orientation" /> Left
+        </label>
+        <label>
+          <input type="radio" value="3" v-model.number="orientation" /> Top
+        </label>
+        <label>
+          <input type="radio" value="4" v-model.number="orientation" /> Bottom
+        </label>
+      </form>
+      <div class="area" :style="setColor"></div>
+    </div>
+    <script src="./load.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
